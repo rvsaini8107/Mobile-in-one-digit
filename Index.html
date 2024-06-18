@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Digit Sum</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Single Digit Sum Calculator</h1>
+        <input type="text" id="numberInput" placeholder="Enter your number">
+        <button onclick="calculateSingleDigitSum()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script >
+      function calculateSingleDigitSum() {
+    let number = document.getElementById("numberInput").value;
+    let resultElement = document.getElementById("result");
+
+    if (!number) {
+        resultElement.textContent = "Please enter a number.";
+        return;
+    }
+
+    let sum = 0;
+    while (number.length > 1) {
+        sum = 0;
+        for (let digit of number) {
+            sum += parseInt(digit);
+        }
+        number = sum.toString();
+    }
+
+    resultElement.textContent = "Single Digit Sum: " + number;
+}
+
+    </script>
+</body>
+</html>
